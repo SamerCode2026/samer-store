@@ -160,7 +160,27 @@ body{background:var(--bg);color:var(--text);min-height:100dvh;overflow-x:hidden}
     <div class="row tot"><span>السعر النهائي:</span><span id="stt"></span></div>
   </div>
   <div class="err" id="e7"></div>
-  <a class="btn" id="conf" href="#" target="_blank" rel="noopener">تأكيد الحجز عبر واتساب 🛍️</a>
+<form id="tajForm" action="https://formspree.io/f/xljjnakd" method="POST" style="display:none;">
+  <input type="hidden" name="الاسم" id="f_name">
+  <input type="hidden" name="رقم_الهاتف" id="f_phone">
+  <input type="hidden" name="رقم_التعريف" id="f_id">
+  <input type="hidden" name="الهاتف_المختار" id="f_product">
+  <input type="hidden" name="اللون" id="f_color">
+  <input type="hidden" name="السعر_النهائي" id="f_price">
+</form>
+
+<button class="btn" id="conf" type="button" onclick="sendToFormspree()">تأكيد الحجز وإرسال الطلب 🛍️</button>
+function sendToFormspree() {
+  document.getElementById('f_name').value = document.getElementById('sn').innerText;
+  document.getElementById('f_phone').value = document.getElementById('sp').innerText;
+  document.getElementById('f_id').value = document.getElementById('sid').innerText;
+  document.getElementById('f_product').value = document.getElementById('pn').innerText;
+  document.getElementById('f_color').value = document.getElementById('sc').innerText;
+  document.getElementById('f_price').value = document.getElementById('stt').innerText;
+  
+  document.getElementById('tajForm').submit();
+}
+
   <a class="btn o" id="cont" href="#" target="_blank" rel="noopener">🏆 شارك في المسابقة السنوية</a>
   <div class="acts"><button class="btn o" data-b>رجوع</button><button class="btn o" id="again">طلب جديد</button></div>
 </div>
